@@ -2,16 +2,15 @@ __author__ = 'mattstocker'
 
 from bottle import route, run, template
 from Launch import launchrocket
+from Config import mainpage, launchmain
+
 @route('/')
 def main():
-    return '''
-    <h1>PyLaunchControl</h1>
-    <p>This is the home page, you need to get the PiLauncher app to use this server!</p>
-    '''
+    return str(mainpage())
 
-@route('/launch/')
+@route('/launch')
 def launch():
-        return "<p>You haven't used the app to launch a firework have you now :(</p>"
+        return str(launchmain())
 
 @route('/launch/<number>')
 def launch(number='number'):
